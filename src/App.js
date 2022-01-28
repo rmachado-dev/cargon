@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { Col, Container, Row } from "react-bootstrap";
+import { Col, Container, Nav, Navbar, Row } from "react-bootstrap";
 import List from "./users/list";
-import api from './services/api';
+import api from "./services/api";
 
 function App() {
   const [lista, setLista] = useState([]);
@@ -16,14 +16,25 @@ function App() {
 
   return (
     <>
+    
+      <Navbar bg="light" variant="light">
+        <Container>
+        <Navbar.Brand href="#home">ReactJS</Navbar.Brand>
+        <Nav>
+          <Nav.Link href="/">Lista dos Usuários</Nav.Link>
+          <Nav.Link href="/cadastro">Cadastro</Nav.Link>
+        </Nav>
+        </Container>
+      </Navbar>
+
       <Container>
         <Row>
           <Col>
-            <h1>Processo Seletivo - ReactJS</h1>
-            <List usuarios={lista.data} />
+            <List usuarios={lista.data} />          
           </Col>
         </Row>
       </Container>
+
     </>
   );
 }
