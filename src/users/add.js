@@ -8,35 +8,31 @@ const Cadastro = () => (
     <Form>
       <Row>
         <Col>
-          <Form.Control placeholder="First name" />
+          <Form.Label>Nome </Form.Label>
+          <Form.Control />
         </Col>
         <Col>
-          <Form.Control placeholder="Last name" />
+          <Form.Label>Email </Form.Label>
+          <Form.Control />
         </Col>
       </Row>
-    </Form>
-
-    <Form>
-      <Form.Group className="mb-3">
-        <Form.Label>Nome </Form.Label>
-        <Form.Control type="text" />
-      </Form.Group>
-      <Form.Group className="mb-3">
-        <Form.Label>Email </Form.Label>
-        <Form.Control type="email" />
-      </Form.Group>
-      <Form.Group className="mb-3">
-        <Form.Label>Status </Form.Label>
-        <Form.Control type="text" />
-      </Form.Group>
-      <Form.Group className="mb-3">
-        <Form.Label>Gênero </Form.Label>
-        <Form.Control type="text" />
-      </Form.Group>
-
-      <Button variant="primary" type="submit">
-        Cadastrar
-      </Button>
+      <Row className="py-4">
+        <Col>
+          <Form.Label>Status </Form.Label>
+          <Form.Control />
+        </Col>
+        <Col>
+          <Form.Label>Gênero </Form.Label>
+          <Form.Control />
+        </Col>
+      </Row>
+      <Row className="py-2">
+        <Col>
+          <Button variant="primary" type="submit">
+            Cadastrar
+          </Button>
+        </Col>
+      </Row>
     </Form>
   </>
 );
