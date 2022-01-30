@@ -29,7 +29,7 @@ function App() {
       </Navbar>
 
       <Container>
-        <Row>
+        <Row className="mb-5">
           <Col>
             <Cadastro />
           </Col>
