@@ -13,7 +13,7 @@ function List({ usuarios }) {
             <th>E-mail</th>
             <th>Gênero</th>
             <th>Status</th>
-            <th className="w-25">Ações</th>
+            <th>Ações</th>
           </tr>
         </thead>
         <tbody className="text-center">
