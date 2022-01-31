@@ -1,0 +1,111 @@
+import axios from "axios";
+import React, { useEffect } from "react";
+import { Button, Col, Container, Row } from "react-bootstrap";
+import Form from "react-bootstrap/Form";
+import { useForm } from "react-hook-form";
+import { useParams } from "react-router-dom";
+
+function UserEdit() {
+  const { id } = useParams();
+
+  // const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) =>
+    axios
+      .put(
+        `https://gorest.co.in/public/v1/users?access-token=74db48e291075450bdcbe60b248398f428968607c014bc0955b273cd025e3778/${id}`,
+        data
+      )
+      .then(() => {
+        console.log("OK!");
+      })
+      .catch(() => {
+        console.log("OPS! ERRO.");
+      });
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm();
+
+  useEffect(() => {
+    axios
+      .get(
+        `https://gorest.co.in/public/v1/users?access-token=74db48e291075450bdcbe60b248398f428968607c014bc0955b273cd025e3778/${id}`
+      )
+      .then((response) => {
+        reset(response.data);
+      });
+  }, []);
+
+  return (
+    <>
+      <Container>
+        <h1 className="py-5">Atualizar Usuário</h1>
+        <Form onSubmit={handleSubmit(onSubmit)}>
+          <Row>
+            <Col sm={6} className="mb-3">
+              <Form.Label>Nome </Form.Label>
+              <Form.Control
+                type="text"
+                name="name"
+                {...register("name", { required: true })}
+              />
+              <small className="text-danger">
+                {errors.name?.type === "required" && "Campo obrigatório!"}
+              </small>
+            </Col>
+            <Col sm={6} className="mb-3">
+              <Form.Label>Email </Form.Label>
+              <Form.Control
+                type="email"
+                name="email"
+                {...register("email", { required: true })}
+              />
+              <small className="text-danger">
+                {errors.email?.type === "required" && "Campo obrigatório!"}
+              </small>
+            </Col>
+          </Row>
+          <Row className="py-sm-4">
+            <Col sm={6} className="mb-3">
+              <Form.Label>Gênero </Form.Label>
+              <Form.Select {...register("gender", { required: true })}>
+                <option value="">--</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+              </Form.Select>
+
+              <small className="text-danger">
+                {errors.gender?.type === "required" && "Campo obrigatório!"}
+              </small>
+            </Col>
+
+            <Col sm={6} className="mb-3">
+              <Form.Label>Status </Form.Label>
+
+              <Form.Select {...register("status", { required: true })}>
+                <option value="">--</option>
+                <option value="active">Active</option>
+                <option value="inactive">Inactive</option>
+              </Form.Select>
+              <small className="text-danger">
+                {errors.status?.type === "required" && "Campo obrigatório!"}
+              </small>
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+              <Button variant="primary" type="submit">
+                Cadastrar
+              </Button>
+            </Col>
+          </Row>
+        </Form>
+      </Container>
+    </>
+  );
+}
+
+export default UserEdit;
