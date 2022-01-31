@@ -1,15 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { Col, Container, Nav, Navbar, Row } from "react-bootstrap";
-import List from "./users/list";
 import api from "./services/api";
-import Cadastro from "./users/add";
+import UserAdd from "./users/add";
+import UserList from "./users/list";
 
 function App() {
   const [lista, setLista] = useState([]);
 
   useEffect(() => {
     api
-      .get("/users?page=1")
+      .get(
+        "/users?access-token=74db48e291075450bdcbe60b248398f428968607c014bc0955b273cd025e3778"
+      )
       .then((response) => setLista(response.data))
       .catch((err) => {
         console.error("ops! ocorreu um erro" + err);
@@ -31,12 +33,12 @@ function App() {
       <Container>
         <Row className="mb-5">
           <Col>
-            <Cadastro />
+            <UserAdd />
           </Col>
         </Row>
         <Row>
           <Col>
-            <List usuarios={lista.data} />
+            <UserList usuarios={lista.data} />
           </Col>
         </Row>
       </Container>
