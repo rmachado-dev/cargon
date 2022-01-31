@@ -2,31 +2,31 @@ import React from "react";
 import { Button, Col, Row } from "react-bootstrap";
 import Form from "react-bootstrap/Form";
 
-const Cadastro = () => (
+const UserAdd = () => (
   <>
     <h1 className="py-5">Cadastro de Usuários</h1>
     <Form>
       <Row>
-        <Col>
+        <Col sm={6} className="mb-3">
           <Form.Label>Nome </Form.Label>
           <Form.Control />
         </Col>
-        <Col>
+        <Col sm={6} className="mb-3">
           <Form.Label>Email </Form.Label>
           <Form.Control />
         </Col>
       </Row>
-      <Row className="py-4">
-        <Col>
+      <Row className="py-sm-4">
+        <Col sm={6} className="mb-3">
           <Form.Label>Status </Form.Label>
           <Form.Control />
         </Col>
-        <Col>
+        <Col sm={6} className="mb-3">
           <Form.Label>Gênero </Form.Label>
           <Form.Control />
         </Col>
       </Row>
-      <Row className="py-2">
+      <Row>
         <Col>
           <Button variant="primary" type="submit">
             Cadastrar
@@ -37,4 +37,4 @@ const Cadastro = () => (
   </>
 );
 
-export default Cadastro;
+export default UserAdd;
