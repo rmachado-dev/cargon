@@ -9,11 +9,11 @@ function UserList({ usuarios }) {
         <thead>
           <tr className="text-center">
             <th>ID</th>
-            <th>Nome</th>
+            <th>Name</th>
             <th>E-mail</th>
-            <th>Gênero</th>
+            <th>Gender</th>
             <th>Status</th>
-            <th>Ações</th>
+            <th>Actions</th>
           </tr>
         </thead>
         <tbody className="text-center">
@@ -31,10 +31,10 @@ function UserList({ usuarios }) {
                     +info
                   </Button>
                   <Button variant="outline-dark" size="sm" className="m-1">
-                    editar
+                    edit
                   </Button>
                   <Button variant="outline-danger" size="sm" className="m-1">
-                    deletar
+                    delete
                   </Button>
                 </td>
               </tr>
