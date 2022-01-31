@@ -1,7 +1,7 @@
 import React from "react";
 import { Button, Table } from "react-bootstrap";
 
-function List({ usuarios }) {
+function UserList({ usuarios }) {
   return (
     <>
       <h1 className="py-5">Lista dos Usuários</h1>
@@ -45,4 +45,4 @@ function List({ usuarios }) {
   );
 }
 
-export default List;
+export default UserList;
